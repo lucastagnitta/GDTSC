@@ -1,0 +1,53 @@
+﻿GOOGLE DRIVE TRASH SELECTIVE CLEANER
+
+PURPOSE
+When you overwrite a file in Google Drive the previous version is not really gone forever but put in the trash, this means having versioning for free, 
+but it comes with an annoyance.
+If you have like me a high rewriting activity in your Google Drive, you'll end up soon with a cluttered trash and an ever increasing consumed quota.
+To get rid of this situation, you'll have either to tediously delete file by file or totally empty the trash and losing the versioning benefit.
+I wrote this program to delete from trash the files matching user defined criteria.
+
+INSTALLATION AND CONFIGURATION
+- Download the zip containing the program files here and extract it in a local folder
+- Activate the Google Drive API, going here: https://console.developers.google.com/project (you'll have to login with your gmail account)
+- Create a project
+- From the menu choose APIs & auth, APIs
+- Find "Drive API" then click on the status button and switch it ON
+- From the menu choose Credentials, then click on the CREATE NEW CLIENT ID button
+- Download the authorization file clicking on Download JSON and put it in the same folder of the program
+- Rename the downloaded file (client_secret_xxxxxxxxxxxxx.apps.googleusercontent.com.json) to "client_secret.json"
+- The very first time you'll use the program, a browser should open asking you to authenticate and permit the application to communicate with 
+google drive, do so.
+In some circumstances you could get a browser error like this:
+	Error:invalid_client
+	Bad request.
+	cookie_policy_enforce=false
+	response_type=code
+	scope=https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file
+	access_type=offline
+	redirect_uri=http://localhost:52147/authorize/
+	client_id=AddYours.apps.googleusercontent.com
+Should this happen you'll have to take these additional steps:
+- From the API Console click on "Consent screen"
+- Select your gmail address
+- Enter a product name (ex: GDTSC)
+- Press Save
+
+USE
+- Specify a date range of last modification, a range of file size and a substring of the file name (all the criteria must be matched), leaving
+defaults values will list all the trashed files.
+- Click on Search, after a while you'll be presented with a list of trashed files matching the criteria 
+- Review the files list then press Remove to delete for good the visualized files from the trash.
+
+NOTES
+If your trash is very cluttered search and deletions operations will take time.
+When deleting many files Google will take some time to actually free up your quota.
+Sometime, while operating, Google servers reply with errors like "500 - Internal Server Error", this happens after 5 retry operations, so
+that case should mean a temporary service outage, anyway it's harmless.
+During tests this program could correctly delete about 10000 files, but it might still contains bugs.
+Please have a fresh backup of your important data before using it.
+
+BUILD
+- VS >= 2010
+- nuget
+- Google.Apis.Drive.v2
