@@ -1,14 +1,13 @@
 ﻿GOOGLE DRIVE TRASH SELECTIVE CLEANER
 
 PURPOSE
-When you overwrite a file in Google Drive the previous version is not really gone forever but put in the trash, this means having versioning for free, 
-but it comes with an annoyance.
+When you overwrite a file in Google Drive the previous version is not really gone forever but put in the trash, this means having versioning for free, but it comes with an annoyance.
 If you have like me a high rewriting activity in your Google Drive, you'll end up soon with a cluttered trash and an ever increasing consumed quota.
 To get rid of this situation, you'll have either to tediously delete file by file or totally empty the trash and losing the versioning benefit.
 I wrote this program to delete from trash the files matching user defined criteria.
 
 INSTALLATION AND CONFIGURATION
-- Download the zip containing the program files here and extract it in a local folder
+- Download GDTSC.zip containing the program files and extract it in a local folder
 - Activate the Google Drive API, going here: https://console.developers.google.com/project (you'll have to login with your gmail account)
 - Create a project
 - From the menu choose APIs & auth, APIs
@@ -16,8 +15,7 @@ INSTALLATION AND CONFIGURATION
 - From the menu choose Credentials, then click on the CREATE NEW CLIENT ID button
 - Download the authorization file clicking on Download JSON and put it in the same folder of the program
 - Rename the downloaded file (client_secret_xxxxxxxxxxxxx.apps.googleusercontent.com.json) to "client_secret.json"
-- The very first time you'll use the program, a browser should open asking you to authenticate and permit the application to communicate with 
-google drive, do so.
+- The very first time you'll use the program, a browser should open asking you to authenticate and permit the application to communicate with google drive, do so.
 In some circumstances you could get a browser error like this:
 	Error:invalid_client
 	Bad request.
