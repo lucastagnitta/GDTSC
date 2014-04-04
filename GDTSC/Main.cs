@@ -113,7 +113,7 @@ namespace GDTSC {
 			request.Fields = "items(id,fileSize,labels/trashed,modifiedDate,title,parents/id),nextPageToken";
 			// RFC 3339 format, default timezone is UTC, e.g., 2012-06-04T12:00:00-08:00.
 			string d1 = XmlConvert.ToString(fromdate.Value, XmlDateTimeSerializationMode.Utc);
-			string d2 = XmlConvert.ToString(todate.Value, XmlDateTimeSerializationMode.Utc);
+			string d2 = XmlConvert.ToString(todate.Value.AddDays(1), XmlDateTimeSerializationMode.Utc);
 
 			string fname;
 			string fext;
@@ -128,7 +128,7 @@ namespace GDTSC {
 			request.Q = 
 				"trashed=true " +
 				"and modifiedDate >= '" + d1 + "' " +
-				"and modifiedDate <= '" + d2 + "' " +
+				"and modifiedDate < '" + d2 + "' " +
 				"and title contains '" + fname + "' ";
 
 			double savedmb = 0;

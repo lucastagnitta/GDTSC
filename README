@@ -1,9 +1,15 @@
 ﻿GOOGLE DRIVE TRASH SELECTIVE CLEANER
 
 PURPOSE
-When you overwrite a file in Google Drive the previous version is not really gone forever but put in the trash, this means having versioning for free, but it comes with an annoyance.
-If you have like me a high rewriting activity in your Google Drive, you'll end up soon with a cluttered trash and an ever increasing consumed quota.
-To get rid of this situation, you'll have either to tediously delete file by file or totally empty the trash and losing the versioning benefit.
+When you delete a file on the client side of Google Drive it's not definitevely deleted but it goes in the Google Drive trash.
+This behavior gives the opportunity to fetch previous versions or restore inadvertently deletions but it consumes Google Drive quota.
+This is different from the versioning ability of Google Drive to retain all the versions of rewritten files at no cost (they are kept for 30 days).
+Which one of the two cases depends on the application which writes the file:
+- rewrite, no trashing and versioning
+- deletion and writing of the new file, trashing
+Usually when you save an existing file with the majority of applications the first case applies.
+However if you have like me a lot of deletions you'll end up soon with a cluttered trash and an ever increasing consumed quota.
+To get rid of this situation, you'll have either to tediously delete file by file or totally empty the trash and lose the history benefit.
 I wrote this program to delete from trash the files matching user defined criteria.
 
 INSTALLATION AND CONFIGURATION
@@ -32,17 +38,15 @@ Should this happen you'll have to take these additional steps:
 - Press Save
 
 USE
-- Specify a date range of last modification, a range of file size and a substring of the file name (all the criteria must be matched), leaving
-defaults values will list all the trashed files.
+- Specify a date range of last modification, a range of file size and a substring of the file name (all the criteria must be matched), leaving defaults values will list all the trashed files before the last 30 days.
 - Click on Search, after a while you'll be presented with a list of trashed files matching the criteria 
 - Review the files list then press Remove to delete for good the visualized files from the trash.
 
 NOTES
 If your trash is very cluttered search and deletions operations will take time.
 When deleting many files Google will take some time to actually free up your quota.
-Sometime, while operating, Google servers reply with errors like "500 - Internal Server Error", this happens after 5 retry operations, so
-that case should mean a temporary service outage, anyway it's harmless.
-During tests this program could correctly delete about 10000 files, but it might still contains bugs.
+Sometime, while operating, Google servers reply with errors like "500 - Internal Server Error", this happens after 5 retry operations, so that case should mean a temporary service outage, anyway it's harmless.
+During the tests this program could correctly delete about 10000 files, but it might still contains bugs.
 Please have a fresh backup of your important data before using it.
 
 BUILD
